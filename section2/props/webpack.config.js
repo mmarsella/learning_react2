@@ -2,7 +2,7 @@ module.exports = {
   // The absolute path to your project
   context: __dirname + "/",
   // the entry point for our app
-  entry: './src/index.js',
+  entry: './exercises/index.js',
   // where to put the compiled output (what our script tag will link to)
   output: {
     // where does it go?
@@ -13,16 +13,22 @@ module.exports = {
   // how can we debug our bundle? for production, we can use 'source-map'
   devtool: 'eval',
   module: {
-    rules: [{
-      //Check for all js & jsx files
-      test:  /\.jsx?$/,
-      // Don't include node_modules directory in the search for js files
-      exclude: /node_modules/,
-      // Use the babel-loader plugin to transpile the javascript
-      use: [{
-        loader: 'babel-loader',
-        options: { presets: ['es2015'] }
-      }]
-    }]
+    rules: [
+      {
+        //Check for all js & jsx files
+        test:  /\.jsx?$/,
+        // Don't include node_modules directory in the search for js files
+        exclude: /node_modules/,
+        // Use the babel-loader plugin to transpile the javascript
+        use: [{
+          loader: 'babel-loader',
+          options: { presets: ['es2015'] }
+        }]
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
+    ]
   }
 };
