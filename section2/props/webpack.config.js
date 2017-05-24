@@ -2,7 +2,7 @@ module.exports = {
   // The absolute path to your project
   context: __dirname + "/",
   // the entry point for our app
-  entry: './exercises/index.js',
+  entry: './state/index.js',
   // where to put the compiled output (what our script tag will link to)
   output: {
     // where does it go?
