@@ -23,6 +23,8 @@ class App extends Component{
 			this.setState({style: {"backgroundColor": randomColors[Math.floor(Math.random() * randomColors.length)]}})
 		}
 
+
+		//need to fig out how to target a random child component w/ this
 		setInterval(changeColor.bind(this), 300);
 	}
 
@@ -32,7 +34,11 @@ class App extends Component{
 		var subPanel = [];
 
 		for(var i=0; i<24; i++){
-			
+
+
+			// push into temp arr, wrap with div
+			// try to get 4 rows of 6
+			// Target on key=index
 			if(i % 6 === 0){
 
 			}
