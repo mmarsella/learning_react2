@@ -8,51 +8,39 @@ class App extends Component {
   constructor(props){
     super(props)
 
-    var origLinks = ['https://www.google.com', 'https://www.yahoo.com', 'https://www.macys.com']; 
+    var origLinks = [{name:'google', url: 'https://www.google.com'}, {name:'yahoo', url:'https://www.yahoo.com'}, {name:'macys', url:'https://www.macys.com'}]; 
 
     this.state = {
       links: origLinks,
       disabled: false,
       buttonText: this.disabled ? "Enable" : "Disable" 
     }
-
+    
     this.handleLinkClick = this.handleLinkClick.bind(this);
   }
 
-
   handleLinkClick(e){
-
-    if(!this.state.disabled){
+    if(this.state.disabled){
+      console.log('preventing default!');
       e.preventDefault();
-    }
-    
-    console.log('CLICKED ON:', this.state.disabled)
+    }  
   }
 
   disableLinks(){
-    console.log("STATE", this.state); 
-
-    let emptyLinks = this.state.links.map((el,idx) => (
-      ''
-    ))
-
     this.setState({
       disabled: !this.state.disabled,
-      buttonText: this.state.disabled ? "Disable" : 'Enable',
-      links: emptyLinks
+      buttonText: this.state.disabled ? "Disable" : 'Enable'
     }, function(){
       console.log('callback after set state:', this.state)
     })
-
   }
 
 
   render() {
-
     let links = this.state.links.map((el,idx) => (
         <CustomLink
-          text={idx + " mmm"}
-          link={el}
+          text={el.name}
+          link={el.url}
           handleLink={this.handleLinkClick}
           key={idx}
         >
