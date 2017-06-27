@@ -1,0 +1,37 @@
+.todo{
+  background-color: hsla(0, 7%, 80%, 0.66);
+  max-width: 180px;
+  padding: 5px;
+  border-radius: 5px;
+  color: #291c1c;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.closeBtn{
+  float: right;
+  font-size: 10px;
+  bottom: 7px;
+  left: 19px;
+  cursor: pointer;
+}
+
+.todoList{
+  text-align: center;
+
+}
+
+.addButton{
+  margin-top: 10px;
+}
+
+.newTodoInput{
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  max-width: 180px;
+}
+
+.newTodoForm{
+  margin-top: 10px;
+}
