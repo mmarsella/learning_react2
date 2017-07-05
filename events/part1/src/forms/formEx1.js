@@ -134,45 +134,45 @@ import React, { Component } from 'react';
 
 /* Example using state where we could use REFS */
 
-// class Murk extends React.Component {
-//   constructor(props){
-//       super(props)
-//       this.state = {
-//         pin: '',
-//         error: false
-//       }
-//       this.handleSubmit = this.handleSubmit.bind(this);
-//       this.handleChange = this.handleChange.bind(this);
-//   }
+class Murk extends React.Component {
+  constructor(props){
+      super(props)
+      this.state = {
+        pin: '',
+        error: false
+      }
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+  }
 
-//   handleSubmit(e) {
-//     e.preventDefault()
-//     if (this.state.pin === '1234') {
-//       alert("Thanks for the pin!")
-//       this.setState({pin: ''})
-//     } else {
-//       this.setState({pin: '', error: true})
-//     }
-//   }
+  handleSubmit(e) {
+    e.preventDefault()
+    if (this.state.pin === '1234') {
+      alert("Thanks for the pin!")
+      this.setState({pin: ''})
+    } else {
+      this.setState({pin: '', error: true})
+    }
+  }
 
-//   handleChange(e) {
-//     this.setState({pin: e.target.value, error: false})
-//   }
+  handleChange(e) {
+    this.setState({pin: e.target.value, error: false})
+  }
 
-//   render(){
-//     let error = (this.state.error) ?
-//       <p>Wrong. Please Try again.</p> :
-//       null;
-//     return (
-//       <form onSubmit={this.handleSubmit}>
-//         <label>Enter your pin:</label>
-//         <input type="text" value={this.state.pin} onChange={this.handleChange}/>
-//         <button type="submit">Enter</button>
-//         {error}
-//       </form>
-//     )
-//   }
-// }
+  render(){
+    let error = (this.state.error) ?
+      <p>Wrong. Please Try again.</p> :
+      null;
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>Enter your pin:</label>
+        <input type="text" value={this.state.pin} onChange={this.handleChange}/>
+        <button type="submit">Enter</button>
+        {error}
+      </form>
+    )
+  }
+}
 
 /* Same example but usings REFS */
 
