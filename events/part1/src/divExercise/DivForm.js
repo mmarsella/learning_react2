@@ -6,7 +6,7 @@ class DivForm extends Component{
         <form onSubmit={this.props.handleSubmit} className="divForm">
           <div>
             <label>Height</label>
-            <input name="height" onChange={this.props.handleChange} value={this.props.height}></input>
+            <input name="height" onChange={this.props.handleChange} value={this.props.height} ref={ip=> this.height= ip}></input>
           </div>
 
           <div>

@@ -6,7 +6,6 @@ class DivList extends Component{
   constructor(props){
     super(props);
 
-
     /* Would like to know how to store all of these in an obj
        like newDiv:{} and only update vals inside of that obj.
     */
@@ -14,13 +13,39 @@ class DivList extends Component{
       height:'',
       width:'',
       background:'',
-      divs: [{'backgroundColor:red', 'height:100px', 'width:100px'}]
+      divs: [{'backgroundColor':'red', 'height':'100px', 'width':'100px'}]
     }
+
+    // this.addFocus = this.addFocus.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    console.log('SUBMITTED FORM!')
+    let divs = this.state.divs;
+    let newDiv = {backgroundColor:this.state.background, 
+                  height:this.state.height + 'px',
+                  width:this.state.width + 'px'}
+    divs.push(newDiv);
+
+    this.setState({
+      divs:divs,
+      height:'',
+      width:'',
+      background:''
+    })
+
+    // Set Focus on the height input
+    this.addFocus();
+  }
+
+  addFocus() {
+    console.log('addFocus!', this)
+
+    // Nested refs. I added a ref to the DivForm elem in the render() below
+    // Inside of the DivForm - I added a ref to the height input.  
+    // This way, I can access height input through these refs to addFocus
+    // after submitting form.
+    this.divForm.height.focus();
   }
 
   handleChange(e){
@@ -30,15 +55,14 @@ class DivList extends Component{
   }
 
   render(){
-
+    /* LEFT OFF HERE ********** */
     let NewDivs = this.state.divs.map(function(el,i){
+      console.log(el)
       return (
-        <div 
-          style={
-            backgroundColor: el.backgroundColor
-          }> 
+        <div style={el} key={i} className='newDiv'> 
         </div>
-    )
+      )
+    })
 
     console.log('this', this)
     return(
@@ -50,6 +74,8 @@ class DivList extends Component{
           height={this.state.height}
           width={this.state.width}
           background={this.state.background}
+          ref={ el=> this.divForm= el}
+          
         >
         </DivForm>
 
